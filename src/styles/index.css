@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ayur-cream text-ayur-dark;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ayur-primary text-white px-6 py-2 rounded-lg hover:bg-ayur-dark transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-ayur-secondary text-white px-6 py-2 rounded-lg hover:bg-ayur-primary transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-ayur-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-ayur-primary;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-ayur-light transition-colors duration-200;
+  }
+  
+  .sidebar-link-active {
+    @apply bg-ayur-primary text-white hover:bg-ayur-dark;
+  }
+}
+
+/* Dark mode styles */
+.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.dark .card {
+  @apply bg-gray-800 text-gray-100;
+}
+
+.dark .input-field {
+  @apply bg-gray-700 border-gray-600 text-gray-100;
+}
