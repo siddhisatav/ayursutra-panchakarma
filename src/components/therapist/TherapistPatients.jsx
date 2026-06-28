@@ -33,7 +33,7 @@ const TherapistPatients = () => {
     if (!apt?.id) return;
     try {
       setHistoryLoading(true);
-      const res = await fetch(`http://127.0.0.1:5000/api/treatment-history/${apt.id}`);
+      const res = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/treatment-history/${apt.id}`);
       const data = await res.json();
       setTreatmentHistory(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -54,7 +54,7 @@ const TherapistPatients = () => {
       else if (type === 'diet') payload.diet = diet;
 
       // (A) Existing: update appointment.notes / appointment.diet
-      const response = await fetch("http://127.0.0.1:5000/api/update-appointment", {
+      const response = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/update-appointment", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -74,7 +74,7 @@ const TherapistPatients = () => {
         dietary_prescription: type === 'diet' ? diet : (selectedApt.diet || ''),
       };
 
-      await fetch("http://127.0.0.1:5000/api/add-treatment-session", {
+      await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/add-treatment-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sessionPayload),
@@ -102,7 +102,7 @@ const TherapistPatients = () => {
   const loadAppointments = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://127.0.0.1:5000/api/appointments");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
       const data = await res.json();
       const filtered = data.filter(a => Number(a.therapistId) === Number(user.id));
       setAppointments(filtered);

@@ -10,7 +10,7 @@ const STORAGE_KEYS = {
   BILLS: 'ayur_bills'
 };
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://ayursutra-panchakarma-f8cg.onrender.com/api';
 
 // --- User Authentication ---
 export const saveUser = (user) => {

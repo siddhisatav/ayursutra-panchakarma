@@ -34,12 +34,12 @@ const PractitionerPatients = () => {
   const loadAppointments = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://127.0.0.1:5000/api/appointments");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
       const data = await res.json();
       setAppointments(data);
 
       // ✅ Fetch therapists for ID-based name resolution
-      const tRes = await fetch("http://127.0.0.1:5000/api/therapists");
+      const tRes = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/therapists");
       const tData = await tRes.json();
       setTherapistsList(Array.isArray(tData) ? tData : []);
     } catch (err) {
@@ -51,7 +51,7 @@ const PractitionerPatients = () => {
 
   const handleViewProfile = async (patientId) => {
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/health_profile/${patientId}`);
+      const res = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/health_profile/${patientId}`);
       if (res.ok) {
         const data = await res.json();
         setSelectedProfile(data);

@@ -15,7 +15,7 @@ const AppointmentBooking = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/therapists")
+    fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/therapists")
       .then(res => res.json())
       .then(data => setTherapists(Array.isArray(data) ? data : []))
       .catch(err => console.error("Error fetching therapists:", err));
@@ -70,7 +70,7 @@ const AppointmentBooking = () => {
       }
 
       try {
-        const orderResponse = await fetch('http://localhost:5000/api/payment/create-order', {
+        const orderResponse = await fetch('https://ayursutra-panchakarma-f8cg.onrender.com/api/payment/create-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ amount: amountToPay }),

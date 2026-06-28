@@ -36,7 +36,7 @@ const TherapistDashboard = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://127.0.0.1:5000/api/appointments");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
       const data = await res.json();
 
       console.log("USER ID:", user.id);
@@ -69,7 +69,7 @@ const TherapistDashboard = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/update-appointment", {
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/update-appointment", {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ appointmentId: id, status })
@@ -91,7 +91,7 @@ const TherapistDashboard = () => {
     if (!selectedSession) return;
     try {
       // 1. Save Session Notes
-      const noteRes = await fetch("http://127.0.0.1:5000/api/session_notes", {
+      const noteRes = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/session_notes", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -106,7 +106,7 @@ const TherapistDashboard = () => {
 
       // 2. Increment currentDay
       const nextDay = (selectedSession.currentDay || 1) + 1;
-      const updateRes = await fetch("http://127.0.0.1:5000/api/update-appointment", {
+      const updateRes = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/update-appointment", {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

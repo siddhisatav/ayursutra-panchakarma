@@ -21,7 +21,7 @@ const PatientProfile = () => {
 
   const loadPatientData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/appointments");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
       const data = await res.json();
 
       // filter current patient's appointments
@@ -52,13 +52,13 @@ const PatientProfile = () => {
       setActiveAppointment(active);
 
       // Fetch Bills from Backend
-      const billsRes = await fetch(`http://127.0.0.1:5000/api/patient-bills/${user.id}`);
+      const billsRes = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/patient-bills/${user.id}`);
       const billsData = await billsRes.json();
       setBills(billsData || []);
 
       // Fetch Health Profile
       try {
-        const hpRes = await fetch(`http://127.0.0.1:5000/api/health_profile/${user.id}`);
+        const hpRes = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/health_profile/${user.id}`);
         if (hpRes.ok) {
           const hpData = await hpRes.json();
           setHealthProfile(prev => ({ ...prev, ...hpData }));
@@ -92,7 +92,7 @@ const PatientProfile = () => {
     e.preventDefault();
     try {
       const payload = { ...healthProfile, patientId: user.id };
-      const res = await fetch("http://127.0.0.1:5000/api/health_profile", {
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/health_profile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -127,7 +127,7 @@ const PatientProfile = () => {
     }
     try {
       // Step 1: Create Order
-      const orderRes = await fetch("http://127.0.0.1:5000/api/create-razorpay-order", {
+      const orderRes = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/create-razorpay-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: bill.amount })
@@ -150,7 +150,7 @@ const PatientProfile = () => {
 
         handler: async function (response) {
           try {
-            await fetch("http://127.0.0.1:5000/api/verify-payment", {
+            await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/verify-payment", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -164,7 +164,7 @@ const PatientProfile = () => {
             showToast("Payment Successful", "success");
             
             // Reload bills after payment
-            const updated = await fetch(`http://127.0.0.1:5000/api/patient-bills/${user.id}`);
+            const updated = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/patient-bills/${user.id}`);
             setBills(await updated.json());
             
           } catch (err) {

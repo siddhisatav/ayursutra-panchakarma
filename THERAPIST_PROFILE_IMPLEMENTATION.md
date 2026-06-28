@@ -82,7 +82,7 @@ Updated `to_dict()` method to include all new fields in API responses.
 
 **API Integration**
 - Fetches profile from local storage on mount
-- PUT request to `http://localhost:5000/api/therapist/profile/`
+- PUT request to `https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/`
 - Updates local storage with new data after save
 - Proper error handling and user feedback
 

@@ -7,7 +7,7 @@
 cd backend
 python app.py
 ```
-- Flask server should start on `http://localhost:5000`
+- Flask server should start on `https://ayursutra-panchakarma-f8cg.onrender.com`
 - SQLite database will be automatically created/updated with new columns
 - Existing data is preserved
 
@@ -115,7 +115,7 @@ Verify the following fields display correctly (with "Not listed" if empty):
 
 ### Get Therapist Profile
 ```bash
-curl http://localhost:5000/api/therapist/profile/?id=2
+curl https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/?id=2
 ```
 Expected response:
 ```json
@@ -134,7 +134,7 @@ Expected response:
 
 ### Update Therapist Profile
 ```bash
-curl -X PUT http://localhost:5000/api/therapist/profile/ \
+curl -X PUT https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/ \
   -H "Content-Type: application/json" \
   -d '{
     "id": 2,

@@ -32,7 +32,7 @@ const TherapistSchedule = () => {
 
   const handleStatusUpdate = async (id, status) => {
     try {
-      await fetch(`http://127.0.0.1:5000/api/appointments/${id}`, {
+      await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status })
@@ -61,7 +61,7 @@ const TherapistSchedule = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://127.0.0.1:5000/api/appointments");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
       const data = await res.json();
 
       console.log("USER ID:", user.id);

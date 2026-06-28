@@ -66,7 +66,7 @@ SQLAlchemy automatically handles the schema migration:
 ### GET Therapist Profile
 ```
 Method: GET
-URL: http://localhost:5000/api/therapist/profile/
+URL: https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/
 Query Parameters:
   - id (required): Therapist user ID (integer)
 
@@ -93,7 +93,7 @@ Error Responses:
 ### PUT Therapist Profile
 ```
 Method: PUT
-URL: http://localhost:5000/api/therapist/profile/
+URL: https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/
 Content-Type: application/json
 
 Request Body:
@@ -395,7 +395,7 @@ console.log('FormData:', formData)
 console.log('IsEditing:', isEditing)
 
 // Check API response
-fetch('http://localhost:5000/api/therapist/profile/?id=2')
+fetch('https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/?id=2')
   .then(r => r.json())
   .then(d => console.log(d))
 ```

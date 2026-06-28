@@ -85,7 +85,7 @@ All required packages already installed:
 ```bash
 cd backend
 python app.py
-# Server runs on http://localhost:5000
+# Server runs on https://ayursutra-panchakarma-f8cg.onrender.com
 ```
 
 **Terminal 2 - Frontend:**

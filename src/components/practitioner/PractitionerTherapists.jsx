@@ -126,7 +126,7 @@ const PractitionerTherapists = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://127.0.0.1:5000/api/therapists");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/therapists");
       const data = await res.json();
 
       console.log("THERAPISTS:", data);

@@ -224,7 +224,7 @@ const handleSaveProfile = async () => {
     };
 
     // Call backend API
-    const response = await fetch('http://localhost:5000/api/therapist/profile/', {
+    const response = await fetch('https://ayursutra-panchakarma-f8cg.onrender.com/api/therapist/profile/', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

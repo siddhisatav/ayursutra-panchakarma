@@ -32,7 +32,7 @@ const PractitionerSettings = () => {
   const [clearDataModalOpen, setClearDataModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/settings/notifications")
+    fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/notifications")
       .then(res => res.json())
       .then(data => {
         if (data) setSettings(data);
@@ -42,7 +42,7 @@ const PractitionerSettings = () => {
     const fetchCenterSettings = async () => {
       try {
         setLoading(true);
-        const centerRes = await fetch("http://127.0.0.1:5000/api/settings/center").catch(() => null);
+        const centerRes = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/center").catch(() => null);
         if (centerRes && centerRes.ok) {
           const centerData = await centerRes.json();
           setCenterInfo(centerData);
@@ -61,7 +61,7 @@ const PractitionerSettings = () => {
     setSettings(updatedSettings);
 
     try {
-      await fetch("http://127.0.0.1:5000/api/settings/notifications", {
+      await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/notifications", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedSettings)
@@ -95,12 +95,12 @@ const PractitionerSettings = () => {
     try {
       setSaving(true);
       const [notifRes, centerRes] = await Promise.all([
-        fetch("http://127.0.0.1:5000/api/settings/notifications", {
+        fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/notifications", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(settings),
         }),
-        fetch("http://127.0.0.1:5000/api/settings/center", {
+        fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/center", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(centerInfo),
@@ -130,7 +130,7 @@ const PractitionerSettings = () => {
       return;
     }
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/settings/change-password", {
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/change-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -153,7 +153,7 @@ const PractitionerSettings = () => {
 
   const handleToggle2FA = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/settings/toggle-2fa", {
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/toggle-2fa", {
         method: "POST",
         headers: { "Content-Type": "application/json" }
       });
@@ -170,7 +170,7 @@ const PractitionerSettings = () => {
 
   const handleExportData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/patients/export");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/patients/export");
       if (!res.ok) throw new Error("Failed to export data");
       
       const blob = await res.blob();
@@ -192,7 +192,7 @@ const PractitionerSettings = () => {
 
   const handleBackupDatabase = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/system/backup", { method: "POST" });
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/system/backup", { method: "POST" });
       if (res.ok) {
         showToast("Database backup successful", "success");
       } else {
@@ -206,7 +206,7 @@ const PractitionerSettings = () => {
 
   const handleClearAllData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/system/clear", { method: "DELETE" });
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/system/clear", { method: "DELETE" });
       if (res.ok) {
         setClearDataModalOpen(false);
         showToast("All data cleared successfully", "success");

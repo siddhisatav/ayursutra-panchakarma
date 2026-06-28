@@ -18,18 +18,18 @@ const PatientDashboard = () => {
       if (!user) return;
       try {
         // ✅ Fetch appointments
-        const res = await fetch("http://127.0.0.1:5000/api/appointments");
+        const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
         const data = await res.json();
         const userAppointments = data.filter(apt => Number(apt.patientId) === Number(user.id));
         setAppointments(userAppointments);
 
         // ✅ Fetch therapists for ID-based name resolution
-        const tRes = await fetch("http://127.0.0.1:5000/api/therapists");
+        const tRes = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/therapists");
         const tData = await tRes.json();
         setTherapistsList(Array.isArray(tData) ? tData : []);
 
         // ✅ Fetch session notes by patientId from dedicated API
-        const nRes = await fetch(`http://127.0.0.1:5000/api/session_notes?patientId=${user.id}`);
+        const nRes = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/session_notes?patientId=${user.id}`);
         const nData = await nRes.json();
         setNotes(Array.isArray(nData) ? nData : []);
 

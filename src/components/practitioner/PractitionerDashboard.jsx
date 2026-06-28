@@ -62,7 +62,7 @@
 //         payload.paymentStatus = 'pending';
 //       }
 
-//       const res = await fetch("http://127.0.0.1:5000/api/update-appointment", {
+//       const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/update-appointment", {
 //         method: "PUT",
 //         headers: { "Content-Type": "application/json" },
 //         body: JSON.stringify(payload)
@@ -98,7 +98,7 @@
 //     try {
 //       setLoading(true);
 
-//       const res = await fetch("http://127.0.0.1:5000/api/appointments");
+//       const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
 //       const data = await res.json();
 
 //       setAppointments(data);
@@ -112,7 +112,7 @@
 
 //    const loadTherapists = async () => {
 //   try {
-//     const res = await fetch("http://127.0.0.1:5000/api/therapists");
+//     const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/therapists");
 //     const data = await res.json();
 //     setTherapistsList(Array.isArray(data) ? data : []);
 //   } catch (err) {
@@ -335,7 +335,7 @@ const PractitionerDashboard = () => {
   const loadAppointments = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://127.0.0.1:5000/api/appointments");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments");
       const data = await res.json();
       setAppointments(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -348,7 +348,7 @@ const PractitionerDashboard = () => {
   // ✅ LOAD THERAPISTS (REAL API)
   const loadTherapists = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/therapists");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/therapists");
       const data = await res.json();
       setTherapistsList(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -359,7 +359,7 @@ const PractitionerDashboard = () => {
   // ✅ LOAD DAILY REPORT
   const loadDailyReport = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/reports/daily");
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/reports/daily");
       if (res.ok) {
         const data = await res.json();
         if (data.error) {
@@ -380,7 +380,7 @@ const PractitionerDashboard = () => {
   useEffect(() => {
     if (!user) return;
 
-    fetch("http://127.0.0.1:5000/api/settings/notifications")
+    fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/notifications")
       .then(res => res.json())
       .then(data => {
         if (data) setSettings(data);
@@ -392,7 +392,7 @@ const PractitionerDashboard = () => {
     loadDailyReport();
 
     const interval = setInterval(() => {
-      fetch("http://127.0.0.1:5000/api/settings/notifications")
+      fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/settings/notifications")
         .then(res => res.json())
         .then(data => {
           if (data) setSettings(data);
@@ -447,7 +447,7 @@ const PractitionerDashboard = () => {
         payload.paymentStatus = 'pending';
       }
 
-      const res = await fetch("http://127.0.0.1:5000/api/update-appointment", {
+      const res = await fetch("https://ayursutra-panchakarma-f8cg.onrender.com/api/update-appointment", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -468,7 +468,7 @@ const PractitionerDashboard = () => {
 
   const handleMarkAsPaid = async (id) => {
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/appointments/${id}/payment`, {
+      const res = await fetch(`https://ayursutra-panchakarma-f8cg.onrender.com/api/appointments/${id}/payment`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ paymentStatus: 'paid' })
